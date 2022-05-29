@@ -1,8 +1,9 @@
 import sys
 sys.path.insert(1, './src')
 
-from fastapi import FastAPI, status
-from fastapi.responses import HTMLResponse
+from crontab import CronTab
+import time
+import os
 
 import logging
 from logging.config import dictConfig
@@ -11,18 +12,11 @@ from log_config import log_config
 dictConfig(log_config)
 logger = logging.getLogger("capstone") # should be this name unless you change it in log_config.py
 
-app = FastAPI()
+cron = CronTab(user='root')
+job = cron.new(command='/bin/bash -c "/usr/local/bin/python /usr/src/app/src/job.py"')
+job.env['FETCH_DATA_URL'] = os.environ['FETCH_DATA_URL']
+job.minute.every(1)
 
-@app.get('/healthcheck', status_code=status.HTTP_200_OK)
-def perform_healthcheck():
-    logger.info('Healthcheck ok')
-    return {'healthcheck': 'Ok'}
+cron.write()
 
-@app.get("/")
-async def main():
-    content = """
-<body>
-<p>Hello World !</p>
-</body>
-    """
-    return HTMLResponse(content=content)
+logger.info('Executed main.py')

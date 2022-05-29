@@ -1,3 +1,8 @@
 #!/bin/bash
-
-uvicorn src.main:app --host=0.0.0.0 --port 8000 --reload
+service cron start
+python src/main.py
+service cron reload
+while true
+do
+  sleep 1000
+done
