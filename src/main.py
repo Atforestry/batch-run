@@ -11,6 +11,7 @@ from logging.config import dictConfig
 from app.log_config import log_config 
 import requests
 
+
 dictConfig(log_config)
 logger = logging.getLogger("planet_api_logger") # should be this name unless you change it in log_config.py
 

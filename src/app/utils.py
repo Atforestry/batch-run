@@ -72,7 +72,7 @@ def generate_raster_png_files(tiff_file:str, mosaic_code:str, path:str):
         img.save(tiff_file_path)
 
 def get_raster_image_path(bbox:list, mosaic_date:str, raster_location:int):
-    main_path = os.path.join('..','data', 'mosaics')
+    main_path = os.path.join('src','data', 'mosaics')
     meta_data_path = os.path.join(main_path,'planet_metadata.json')
 
     #Read metadata
