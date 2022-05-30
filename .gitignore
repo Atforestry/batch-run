@@ -1,4 +1,5 @@
 #Project Related
+src/data/mosaics/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
