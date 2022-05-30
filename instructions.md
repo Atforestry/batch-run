@@ -18,3 +18,4 @@ Below will get the **60** raster of the above mosaic for the date **2021-07** an
 curl --location --request GET 'http://127.0.0.1:8000/v1/get_raster_image?bbox=-53.08593750000001,-3.162455530237873,-52.91015625000001,-2.9869273933348883&date=2021-07&raster_location=60'
 ```
 
+![service_example](https://user-images.githubusercontent.com/61256518/170906051-bf8189da-3fe7-4f28-8427-d8b147462586.JPG)
