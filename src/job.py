@@ -7,7 +7,7 @@ if 'FETCH_DATA_URL' in os.environ:
 else:
   FETCH_DATA_URL = 'NO FETCH URL'
 
-response = requests.get('http://' + FETCH_DATA_URL + '/')
+response = requests.get('http://' + FETCH_DATA_URL + '/v1/fetch_mosaics')
 
 myFile = open('/usr/src/app/src/append.txt', 'a') 
 myFile.write('\nAccessed on ' + str(datetime.now()) + ' ' + str(response.status_code) + ' ' + FETCH_DATA_URL)

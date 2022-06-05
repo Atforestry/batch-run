@@ -1,4 +1,4 @@
-include .env
+export IMAGE_NAME=batch-run
 
 build:
 	docker build . -t atforestry/$(IMAGE_NAME)

@@ -13,9 +13,12 @@ dictConfig(log_config)
 logger = logging.getLogger("capstone") # should be this name unless you change it in log_config.py
 
 cron = CronTab(user='root')
+cron.remove_all()
 job = cron.new(command='/bin/bash -c "/usr/local/bin/python /usr/src/app/src/job.py"')
+job.clear()
 job.env['FETCH_DATA_URL'] = os.environ['FETCH_DATA_URL']
-job.minute.every(1)
+job.minute.on(0)
+job.run()
 
 cron.write()
 
