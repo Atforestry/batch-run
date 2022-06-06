@@ -17,8 +17,8 @@ cron.remove_all()
 job = cron.new(command='/bin/bash -c "/usr/local/bin/python /usr/src/app/src/job.py"')
 job.clear()
 job.env['FETCH_DATA_URL'] = os.environ['FETCH_DATA_URL']
+job.hour.on(1)
 job.minute.on(0)
-job.run()
 
 cron.write()
 
