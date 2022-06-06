@@ -1,4 +1,5 @@
 import sys
+import os
 sys.path.insert(1, './src')
 
 from crontab import CronTab
@@ -23,3 +24,6 @@ job.minute.on(0)
 cron.write()
 
 logger.info('Executed main.py')
+
+crontabCfg = os.system("crontab -l")
+logger.info(crontabCfg)
