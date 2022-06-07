@@ -1,9 +1,7 @@
 version: "3.9"
 services:
-  service:
+  batch-run:
     build: .
-    image: "atforestry/${IMAGE_NAME}"
-    ports:
-      - "8000:8000" 
+    image: "atforestry/batch-run"
     volumes:
       - ./src:/usr/src/app/src
