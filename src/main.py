@@ -20,7 +20,7 @@ job.clear()
 job.env['FETCH_DATA_URL'] = os.environ['FETCH_DATA_URL']
 job.hour.on(1)
 job.minute.on(0)
-#job.day.on(1)
+job.day.on(1)
 
 cron.write()
 
